@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--Customization for Cordova of the Frameworks7 template written by Timo Ernst https://github.com/valnub/Framework7-Pure-Angular-Template 
+Versione con css Material/Android
+-->
+<html ng-app="MyApp"><!--definisco l'html come app Angular con "ng-app"-->
+  <head>
+    <meta charset="utf-8">
+    <!--definisco il viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <title>My Cordova F7 App</title>
+    
+    <!-- Styles -->
+    <!-- Inclusione di css framework7, versione Material-->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <!-- css custom -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Scripts -->
+    <!-- cordova.js per la compilazione Cordova --->
+    <script src="cordova.js"></script>
+    <!-- Scripts Angular e f7-->
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Scripts custom -->
+    <script type="text/javascript" src="js/config.js"></script>
+    <!-- Scripts Angular per l'app-->
+    <script type="text/javascript" src="js/service/InitService.js"></script>
+    <script type="text/javascript" src="js/controller/IndexPageController.js"></script>
+    <script type="text/javascript" src="js/controller/DetailPageController.js"></script>
+    
+  </head>
+  <body>
+   <!--Struttura HTML div base di questo F7
+   statusbar-overlay
+   panel-overlay
+   views
+       view view-main
+         navbar
+         pages
+           (pg1)data-page=index class=page ng-controller=...
+               page-content
+           (pg2)data-page=detailsPage
+               
+   -->
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+    <div class="views">
+      <div class="view view-main">
+        
+        <!-- Navbar -->
+        <div class="navbar no-border">
+          <div class="navbar-inner">
+            <div class="left"></div>
+            <div class="center sliding">MyApp Index Page</div>
+            <div class="right"></div>
+          </div>
+          <div class="navbar-inner cached" data-page="detailsPage">
+            <div class="left sliding">
+              <a href="index" class="link back">
+                <i class="icon icon-back"></i><span>Back</span>
+              </a>
+            </div>
+            <div class="center sliding">Detail page</div>
+            <div class="right"></div>
+          </div>
+        </div>
+        
+        <!-- Pages -->
+        <div class="pages navbar-through toolbar-through">
+          
+          <!-- Page 1 -->
+          <div data-page="index" class="page" ng-controller="IndexPageController">
+            <!-- Page content-->
+            <div class="page-content">
+              Click <a href="#detailsPage">qui</a> e vai alla Pagina 2
+            </div>
+          </div>
+
+          <!-- Page 2 -->
+          <div data-page="detailsPage" class="page cached" ng-controller="DetailPageController">
+            <!-- Page content-->
+            <div class="page-content">
+              Questa è la pagina 2
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
